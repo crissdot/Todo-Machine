@@ -3,6 +3,7 @@ import React from 'react';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
+import { TodoItem } from './TodoItem';
 
 const todos = [
   { text: 'Tarea1', completed: false },
@@ -17,7 +18,7 @@ function App() {
       <TodoSearch />
 
       <TodoList>
-        {/* {todos.map(todo => (<TodoItem />))} */}
+        {todos.map(todo => (<TodoItem />))}
       </TodoList>
 
       {/* <CreateTodoButton /> */}
