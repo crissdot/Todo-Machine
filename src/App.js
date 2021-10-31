@@ -2,6 +2,7 @@ import React from 'react';
 // import './App.css';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
+import { TodoList } from './TodoList';
 
 const todos = [
   { text: 'Tarea1', completed: false },
@@ -13,12 +14,11 @@ function App() {
   return (
     <React.Fragment>
       <TodoCounter />
-
       <TodoSearch />
 
-      {/* <TodoList> */}
+      <TodoList>
         {/* {todos.map(todo => (<TodoItem />))} */}
-      {/* </TodoList> */}
+      </TodoList>
 
       {/* <CreateTodoButton /> */}
       <button>+</button>
