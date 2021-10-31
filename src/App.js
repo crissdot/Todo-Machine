@@ -1,5 +1,6 @@
 import React from 'react';
 // import './App.css';
+import { TodoCounter } from './TodoCounter';
 
 const todos = [
   { text: 'Tarea1', completed: false },
@@ -10,8 +11,7 @@ const todos = [
 function App() {
   return (
     <React.Fragment>
-      {/* <TodoCounter /> */}
-      <h2>Has completado 2 de 3 TODOs</h2>
+      <TodoCounter />
 
       {/* <TodoSearch /> */}
       <input placeholder="Busca un todo" />
