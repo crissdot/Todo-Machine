@@ -1,8 +1,12 @@
 import React from 'react';
 
 function CreateTodoButton() {
+    const addTodo = () => {
+        alert('Test');
+    };
+
     return (
-        <button>+</button>
+        <button onClick={addTodo} >+</button>
     );
 }
 
