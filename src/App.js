@@ -18,6 +18,18 @@ function App() {
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
 
+  let searchedTodos = [];
+
+  if(searchValue.length == 0) {
+    searchedTodos = todos;
+  } else {
+    searchedTodos = todos.filter(todo => {
+      const todoText = todo.text.toLowerCase();
+      const searchText = seachValue.toLowerCase();
+      return todoText.includes(searchText);
+    });
+  }
+
   return (
     <React.Fragment>
       <TodoCounter
@@ -30,7 +42,7 @@ function App() {
       />
 
       <TodoList>
-        {todos.map(todo => (
+        {searchedTodos.map(todo => (
           <TodoItem 
             key={todo.text}
             text={todo.text}
