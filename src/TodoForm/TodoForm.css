@@ -1,0 +1,40 @@
+.TodoForm {
+    width: 50%;
+    background-color: #181818;
+    border-radius: 20px;
+}
+
+.TodoForm > label {
+    display: block;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 25px 0;
+}
+
+.TodoForm > textarea {
+    width: 70%;
+    margin-left: 15%;
+    padding: 15px;
+    border: 0;
+    border-radius: 15px;
+    resize: none;
+}
+
+.TodoForm__buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 25px 0;
+}
+.TodoForm__buttons > button {
+    width: 40%;
+    height: 30px;
+    border: 0;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.TodoForm__addButton {
+    background-color: #23CE6B;
+}

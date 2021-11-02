@@ -1,5 +1,6 @@
 import React from 'react';
 import { TodoContext } from '../TodoContext';
+import './TodoForm.css';
 
 function TodoForm() {
     const [ newTodoValue, setNewTodoValue ] = React.useState('');
@@ -18,14 +19,14 @@ function TodoForm() {
     };
 
     return (
-        <form onSubmit={onSubmit}>
-            <label>Añade un nuveo TODO</label>
+        <form className="TodoForm" onSubmit={onSubmit}>
+            <label>Añade un nuevo TODO</label>
             <textarea value={newTodoValue} onChange={onChange} placeholder="Comprar tacos para la cena" />
-            <div>
+            <div className="TodoForm__buttons">
                 <button type="button" onClick={onCancel}>
                     Cancelar
                 </button>
-                <button type="submit">
+                <button className="TodoForm__addButton" type="submit">
                     Añadir
                 </button>
             </div>

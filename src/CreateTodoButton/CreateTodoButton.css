@@ -1,0 +1,17 @@
+.CreateTodoButton {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #23CE6B;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.CreateTodoButton > svg {
+    width: 25px;
+}
