@@ -1,5 +1,6 @@
 import React from 'react';
 import { TodoContext } from '../TodoContext';
+import './TodoSearch.css';
 
 function TodoSearch() {
     const { searchValue, setSearchValue } = React.useContext(TodoContext);
@@ -10,11 +11,13 @@ function TodoSearch() {
     };
 
     return (
-        <input 
-            placeholder="Busca un todo" 
-            value={searchValue}
-            onChange={onSearchValueChange}
-        />
+        <section className="TodoSearch">
+            <input 
+                placeholder="Busca un todo" 
+                value={searchValue}
+                onChange={onSearchValueChange}
+            />
+        </section>
     );
 }
 
