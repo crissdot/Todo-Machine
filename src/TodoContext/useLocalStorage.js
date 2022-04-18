@@ -1,6 +1,6 @@
 import React from 'react';
 
-function useLocalStorage(itemName, initialValue) {
+function useLocalStorage(itemName, initialValue = [{"completed": false, "text": "¡¡¡Crea tu primer TODO!!!"}]) {
     const [error, setError] = React.useState(false);
     const [loading, setLoading] = React.useState(true);
     const [item, setItem] = React.useState(initialValue);
@@ -13,7 +13,7 @@ function useLocalStorage(itemName, initialValue) {
 
                 if (!localStorageItem) {
                     localStorage.setItem(itemName, JSON.stringify(initialValue));
-                    parsedItem = [];
+                    parsedItem = initialValue;
                 } else {
                     parsedItem = JSON.parse(localStorageItem);
                 }

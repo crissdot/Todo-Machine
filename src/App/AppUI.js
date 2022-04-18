@@ -9,7 +9,7 @@ import { TodoForm } from '../TodoForm';
 import { Modal } from '../Modal';
 
 function AppUI() {
-    const {error, loading, searchedTodos, completeTodo, deleteTodo, openModal, setOpenModal} = React.useContext(TodoContext);
+    const {error, loading, searchedTodos, searchValue, completeTodo, deleteTodo, openModal, setOpenModal} = React.useContext(TodoContext);
 
     return (
         <React.Fragment>
@@ -19,9 +19,10 @@ function AppUI() {
             <TodoList>
                 {error && <p>No pudimos cargar, F</p>}
                 {loading && <p>Estamos cargando, por favor espere</p>}
-                {!loading && !searchedTodos.length && <p>Crea tu primer TODO!!!</p>}
+                {!loading && !!searchValue.length && !searchedTodos.length && <p>No pudimos encontrar lo que buscabas :(</p>}
+                {!loading && !searchValue.length && !searchedTodos.length && <p>Ups, luce muy vacío, ¿por qué no creamos un TODO?</p>}
 
-                {searchedTodos.map(todo => (
+                {!loading && searchedTodos.map(todo => (
                     <TodoItem
                         key={todo.text}
                         text={todo.text}

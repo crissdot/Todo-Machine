@@ -4,7 +4,7 @@ import { useLocalStorage } from './useLocalStorage';
 const TodoContext = React.createContext();
 
 function TodoProvider(props) {
-    const { item: todos, saveItem: saveTodos, loading, error } = useLocalStorage('TODOS_V1', []);
+    const { item: todos, saveItem: saveTodos, loading, error } = useLocalStorage('TODOS_V1');
     const [searchValue, setSearchValue] = React.useState('');
     const [ openModal, setOpenModal ] = React.useState(false);
 
@@ -16,26 +16,31 @@ function TodoProvider(props) {
     if (searchValue.length === 0) {
         searchedTodos = todos;
     } else {
+        const searchText = searchValue.toLowerCase();
         searchedTodos = todos.filter(todo => {
             const todoText = todo.text.toLowerCase();
-            const searchText = searchValue.toLowerCase();
             return todoText.includes(searchText);
         });
     }
 
     const addTodo = (text) => {
-        const newTodos = [...todos];
-        newTodos.push({
-            completed: false,
-            text,
-        });
-        saveTodos(newTodos)
+        const newTodo = todos.find(todo => todo.text === text);
+        if(!newTodo) {
+            const newTodos = [...todos];
+            newTodos.push({
+                completed: false,
+                text,
+            });
+            saveTodos(newTodos)
+        } else {
+            alert('Parece que ese TODO ya existe :)');
+        }
     };
 
     const completeTodo = (text) => {
         const todoIndex = todos.findIndex(todo => todo.text === text);
         const newTodos = [...todos];
-        newTodos[todoIndex].completed = true;
+        newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
         saveTodos(newTodos)
     };
 
