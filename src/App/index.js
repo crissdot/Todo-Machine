@@ -38,13 +38,17 @@ function App() {
                 />
             </TodoHeader>
 
-            <TodoList>
-                {error && <p>No pudimos cargar, F</p>}
-                {loading && <p>Estamos cargando, por favor espere</p>}
-                {!loading && !!searchValue.length && !searchedTodos.length && <p>No pudimos encontrar lo que buscabas :(</p>}
-                {!loading && !searchValue.length && !searchedTodos.length && <p>Ups, luce muy vacío, ¿por qué no creamos un TODO?</p>}
-
-                {!loading && searchedTodos.map(todo => (
+            <TodoList
+                error={error}
+                loading={loading}
+                searchValue={searchValue}
+                searchedTodos={searchedTodos}
+                onError={() => <p>No pudimos cargar, F</p>}
+                onLoading={() => <p>Estamos cargando, por favor espere</p>}
+                onEmptyTodos={() => <p>Ups, luce muy vacío, ¿por qué no creamos un TODO?</p>}
+                onEmptySearchResults={() => <p>No pudimos encontrar lo que buscabas :(</p>}
+            >
+                {todo => (
                     <TodoItem
                         key={todo.text}
                         text={todo.text}
@@ -52,7 +56,7 @@ function App() {
                         onComplete={() => completeTodo(todo.text)}
                         onDelete={() => deleteTodo(todo.text)}
                     />
-                ))}
+                )}
             </TodoList>
 
             {!!openModal && (
