@@ -3,3 +3,7 @@
     font-size: 2rem;
     text-align: center;
 }
+
+.TodoCounter--loading {
+    opacity: 25%;
+}
