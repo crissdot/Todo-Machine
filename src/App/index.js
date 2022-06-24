@@ -8,6 +8,7 @@ import { TodoItem } from '../TodoItem';
 import { TodoForm } from '../TodoForm';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { Modal } from '../Modal';
+import { ChangeAlertWithStoragelListener } from '../ChangeAlert';
 
 function App() {
     const {
@@ -23,6 +24,7 @@ function App() {
         searchValue,
         setSearchValue,
         addTodo,
+        synchronizedTodos,
     } = useTodos();
 
     return (
@@ -69,6 +71,8 @@ function App() {
             )}
 
             <CreateTodoButton setOpenModal={setOpenModal} />
+
+            <ChangeAlertWithStoragelListener synchronize={synchronizedTodos} />
         </React.Fragment>
     );
 }
