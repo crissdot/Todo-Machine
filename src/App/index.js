@@ -12,19 +12,19 @@ import { ChangeAlert } from '../ChangeAlert';
 
 function App() {
     const {
-        error, 
-        loading, 
-        searchedTodos, 
-        completeTodo, 
-        deleteTodo, 
-        openModal, 
-        setOpenModal, 
+        error,
+        loading,
+        searchedTodos,
+        completeTodo,
+        deleteTodo,
+        openModal,
+        setOpenModal,
         totalTodos,
         completedTodos,
         searchValue,
         setSearchValue,
         addTodo,
-        synchronizedTodos,
+        synchronizeTodos,
     } = useTodos();
 
     return (
@@ -72,7 +72,7 @@ function App() {
 
             <CreateTodoButton setOpenModal={setOpenModal} />
 
-            <ChangeAlert synchronize={synchronizedTodos} />
+            <ChangeAlert synchronize={synchronizeTodos} />
         </React.Fragment>
     );
 }
